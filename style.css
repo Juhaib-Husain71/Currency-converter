@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: lightgray;
+    background-color: #fafafa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,13 +12,44 @@ body{
 }
 
 .container{
-    background-color: #FDFCE8;
+    background-color: white;
     min-height: 45vh;
     width: 45vh;
     padding: 2rem;
     border-radius: 2rem;
+    position: relative;
+}
 
-    box-shadow: 5px 5px 5px 3px rgb(146, 98, 190);
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.container::after, .container::before{
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: conic-gradient(from var(--angle), #ff4545,#006aff, #ff0095, #ff4545);
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+        padding: 3px;
+        border-radius: 2rem;
+        animation: 4s spin linear infinite;
+}
+.container::before{
+        filter: blur(1.5rem);
+        opacity: 0.5;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
 }
 
 .head-msg{
@@ -84,6 +115,10 @@ form button{
 @media (max-width: 600px){
     .container{
         width: 70vw;
+    }
+
+     .container::before{
+        filter: blur(0.7rem);
     }
 
     .msg{
