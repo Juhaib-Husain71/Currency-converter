@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.frankfurter.app/latest?amount=1&from=";
+const BASE_URL = "https://open.er-api.com/v6/latest/";
 
 const dropdowns = document.querySelectorAll(".dropDown select");
 const btn = document.querySelector("form button");
@@ -42,20 +42,27 @@ const updateExchangeRate = async () => {
         amount.value = "1";
     }
 
-    console.log(fromCurr.value, toCurr.value);
-    const URL = `${BASE_URL}${fromCurr.value}&to=${toCurr.value}`;
+    // console.log(fromCurr.value, toCurr.value);
+    const URL = `${BASE_URL}${fromCurr.value}`;
+    // console.log(URL);
 
-    let response = await fetch(URL);
-    let data = await response.json();
-    let rate = data.rates[toCurr.value];
+    try{
+        let response = await fetch(URL);
+        const jsonRes = await response.json();
+        let rate = jsonRes.rates[toCurr.value];
 
-    // console.log(toCurr.value);
-    // console.log(data);
-    // console.log(rate);
+        // console.log(toCurr.value);
+        // console.log(jsonRes);
+        // console.log(rate);
+        // console.log(amtVal);
 
-    let finalAmount = amtVal * rate;
-
-    updateMsg.innerText = `${amtVal}${fromCurr.value} = ${finalAmount}${toCurr.value}`;
+        let finalAmount = Number(amtVal) * rate;
+        let roundedAmount = Number(finalAmount.toFixed(2));
+        updateMsg.innerText = `${amtVal} ${fromCurr.value} = ${roundedAmount} ${toCurr.value}`;
+    }catch(error){
+        console.log(error);
+    }
+        
 }
 
 window.addEventListener("load", () => {

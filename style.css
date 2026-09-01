@@ -65,7 +65,7 @@ form select,button,input{
     outline: none;
 }
 form input{
-    border: 2px solid lightgray;
+    border: 2px solid #630F00;
     height: 2rem;
     font-size: 1.2rem;
     font-weight: 550;
@@ -90,7 +90,8 @@ form input{
 }
 .select-container{
     width: 5rem;
-    border: 2px solid lightgray;
+    border: 2px solid #263142;
+;
     border-radius: 1rem;
     padding: 0.5rem;
     margin-top: 0.5rem;
@@ -99,6 +100,9 @@ form input{
 .msg{
     margin: 2rem 0 2rem 0;
     font-size: 1.3rem;
+    color: #00325A;
+    font-weight: 550;
+    font-family: sans-serif;
 }
 
 form button{
@@ -106,7 +110,8 @@ form button{
     font-size: 1rem;
     border: 2px solid gray;
     border-radius: 1rem;
-    background-color: rgba(0, 0, 255, 0.5);
+    background-color: #2E3132;
+    color: white;
     cursor: pointer;
 }
 
