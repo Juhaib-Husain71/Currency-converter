@@ -72,6 +72,8 @@ window.addEventListener("load", () => {
 btn.addEventListener("click", (evt) => {
     evt.preventDefault();
 
+    updateMsg.innerText = "---- = ----";
+    
     updateExchangeRate();    
 });
 
