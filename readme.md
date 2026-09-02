@@ -13,8 +13,12 @@ A simple currency converter built using JavaScript and a free currency API.
 - JavaScript
 - API
 
+---
 ## Live Demo
-
+```
+https://juhaib-husain71.github.io/Currency-converter/  
+```
+---
 
 ## Author
 Juhaib Husain
